@@ -1,0 +1,109 @@
+.board {
+    background-image: url(../Components/images/Board/felt.png);
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+}
+
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    width: auto;
+}
+
+.boardCards, .playerHand {
+display: flex;
+flex-direction: row;
+margin: auto 33% auto 33%;
+padding: auto;
+width: auto;
+}
+
+
+.cardBg {
+    object-fit: fill;
+    place-self: center;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    place-content: center;
+}
+
+.card-img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    place-content: center;
+}
+
+.pcard {
+    height: 10rem !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+    border-radius: 15px;
+    border: solid 1px rgb(255, 255, 255) !important;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    margin: 10px;
+    width: 7.5rem;
+    color: rgb(255, 255, 255);
+
+    &:hover {
+        box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.942) !important;
+        color: rgb(0, 0, 0);
+        height: 20rem !important;
+        width: 15rem !important;
+    }
+
+    &.selected {
+        background-color: rgb(255, 255, 255) !important;
+        color: rgb(255, 255, 255);
+        text-shadow: 1.5px 1.5px 1.5px rgb(0, 0, 0);
+        margin: 0 0.2rem 0 0.2rem;
+    }
+}
+
+.buttonBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* set column sizes here */
+    grid-template-rows: auto auto;
+    place-content: center;
+    grid-gap: 3px;
+    grid-auto-flow: column;
+
+    &>button {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+.notdisplayed {
+    display: none;
+}
+
+.displayed {
+    height: 20px;
+    margin: auto;
+    margin-bottom: 1rem;
+    border: 0;
+}
+
+.Suit {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+
+.inputBox {
+    max-width: 80%;
+}
+
+.clearButton {
+    margin: auto;
+    right: 1.5rem;
+    top: 1.5rem;
+    position: absolute;
+}
