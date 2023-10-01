@@ -37,13 +37,13 @@ const [cardState, setCardState] = useState({
 
 const handleEntry = (e) => {
   if (e.key === 'Enter') {
-    if (e.target.value === "11" || e.target.value === "J" || e.target.value === "j")
+    if (e.target.value === "11" || e.target.value === "J" || e.target.value === "j" || e.target.value === "Jack" || e.target.value === "jack")
       setCardValue("J")
-    else if (e.target.value === "12" || e.target.value === "Q" || e.target.value === "q")
+    else if (e.target.value === "12" || e.target.value === "Q" || e.target.value === "q" || e.target.value === "Queen" || e.target.value === "queen")
       setCardValue("Q")
-    else if (e.target.value === "13" || e.target.value === "K" || e.target.value === "k")
+    else if (e.target.value === "13" || e.target.value === "K" || e.target.value === "k" || e.target.value === "King" || e.target.value === "king")
       setCardValue("K")
-    else if (e.target.value === "14" || e.target.value === "A" || e.target.value === "1" || e.target.value === "a")
+    else if (e.target.value === "14" || e.target.value === "A" || e.target.value === "1" || e.target.value === "a" || e.target.value === "Ace" || e.target.value === "ace")
       setCardValue("A")
     else if (e.target.value > 1 && e.target.value < 11)
       setCardValue(e.target.value)
@@ -83,6 +83,7 @@ const handleClick = (e) => {
         setCardType("Heart")
         setCardImg(heartsImg)
         setSelected("selected")
+        break;
       default:
         return
     }

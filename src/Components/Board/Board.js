@@ -18,6 +18,9 @@ function Board() {
     { card: 5, cardInfo: "" }
   ])
 
+  const [turn, setTurn] = useState(false)
+  const [river, setRiver] = useState(false)
+
   const getCardInfo = (data) => {
     console.log("do it work", data)
     setCardInfo(data);
@@ -35,15 +38,68 @@ function Board() {
   const card4Ref = useRef(null);
   const card5Ref = useRef(null);
 
+  const [pot, setPot] = useState("")
+  const [bet, setBet] = useState("")
 
+  const potOddBoxes = (e) => {
+    if (e.key === 'Enter') {
+      if (e.target.id === "potbox") {
+        setPot(e.target.value)
+      }
+      else if (e.target.id === "betbox") {
+        setBet(e.target.value)
+      }
+    }
+  }
 
+  const potOdds = () => {
+    if (pot && bet) {
+      let potOdds = (bet / (pot + bet)) * 10000
+      return potOdds.toFixed(0)
+            
+    }
+  }
 
+  const [selectedOption, setSelectedOption] = useState("potOdds")
+
+  const handleOptionChange = (e) => {
+    if (e.target.id === "potOdds") {
+      setSelectedOption("potOdds")
+    }
+    else if (e.target.id === "cardView") {
+      setSelectedOption("cardView")
+    }
+  }
 
   return (
     <Container fluid className="board">
       <CloseButton className="clearButton" />
-
-      <Container fluid className="boardCards px-0 w-auto">
+      <div className='radioButtons'>
+        <div className="radioTitle">Select Option</div>
+        <div className='potOddsDiv'>
+          <input id="potOdds" name="radioOption" type="radio" defaultChecked={true} onChange={handleOptionChange}></input>
+        <label htmlFor="potOdds">Pot Odds</label>
+        </div>
+        <div className='cardViewDiv'>
+        <input id="cardView" name="radioOption" type="radio"  onChange={handleOptionChange}></input>
+        <label htmlFor="cardView">Card View</label>
+        </div>
+      </div>
+     {selectedOption === "potOdds" ? <>
+     <div className="numberInput">
+        <div><p >The pot will be...</p>
+        <input type="text" className="numberInput" placeholder="type here"  onKeyDown={potOddBoxes} id="potbox"/></div>
+        <div> <p>You have to call...</p>
+        <input type="text" className="numberInput" placeholder="type here"  onKeyDown={potOddBoxes} id="betbox"/>
+        </div>
+        { potOdds ? <div><p>So you need...</p>
+        <div className="potOddsResult">{potOdds()}%</div>
+        </div> : null}
+      </div>
+      </> : null}
+      {selectedOption === "cardView" ?
+      <>
+       <Container fluid className="boardCards px-0 w-auto">
         <PHand
           key="boardcard1"
           getCardInfo={() => getCardInfo(card1Ref)}
@@ -59,22 +115,32 @@ function Board() {
           getCardInfo={() => getCardInfo(card3Ref)}
           ref={card3Ref}
         />
-        <PHand
+        {turn? <PHand
           key="boardcard4"
           getCardInfo={() => getCardInfo(card4Ref)}
           ref={card4Ref}
-        />
-        <PHand
+        /> : 
+        <div className='boardCardUnfilled'>
+          <div className="turnButton" onClick={()=>setTurn(true)}>
+            <p>+</p>
+            </div>
+        </div>
+        }
+         {river?<PHand
           key="boardcard5"
           getCardInfo={() => getCardInfo(card5Ref)}
           ref={card5Ref}
-        />
+        />:null}
       </Container>
       <Container fluid className="playerHand px-0 w-auto">
-        <PHand key="usercard1" getCardInfo={getCardInfo} id="usercard1" />
-        <PHand key="usercard2" getCardInfo={getCardInfo} id="usercard2" />
+        <PHand key="usercard1" getCardInfo={getCardInfo} id="usercard1" className="pcard1" />
+        <PHand key="usercard2" getCardInfo={getCardInfo} id="usercard2" className="pcard2" />
       </Container>
-    </Container>
+      </>
+      : null
+}
+    </Container> 
+   
   )
 }
 export default Board
