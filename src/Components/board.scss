@@ -22,6 +22,14 @@ padding: auto;
 width: auto;
 }
 
+.playerHand {
+    &:nth-child(1) {
+        margin-top: 1rem;
+    }
+
+    
+}
+
 .pcard1 {
     rotate: -15;
 }
@@ -56,13 +64,13 @@ width: auto;
     width: 7.5rem;
     color: rgb(255, 255, 255);
 
-    &:hover {
-        box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.5);
-        background-color: rgba(255, 255, 255, 0.942) !important;
-        color: rgb(0, 0, 0);
-        height: 18rem !important;
-        width: 14rem !important;
-    }
+    // &:hover {
+    //     box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.5);
+    //     background-color: rgba(255, 255, 255, 0.942) !important;
+    //     color: rgb(0, 0, 0);
+    //     height: 18rem !important;
+    //     width: 14rem !important;
+    // }
 
     &.selected {
         background-color: rgb(255, 255, 255) !important;
@@ -71,6 +79,7 @@ width: auto;
         margin: 0 0.2rem 0 0.2rem;
     }
 }
+
 
 .radioButtons {
     background-color: white;
@@ -106,7 +115,7 @@ width: auto;
     border-radius: 15px;
     border: solid 1px rgb(255, 255, 255) !important;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-    margin: 10px;
+    margin: 0 0.2rem 0 0.2rem;
     color: rgb(255, 255, 255);
     display: flex;
     justify-content: center;
@@ -117,10 +126,14 @@ width: auto;
     }
 }
 
-.turnButton {
-    &:hover{
-        font-size: 1.2rem;
-    }
+// .turnButton {
+//     &:hover{
+//         font-size: 1.2rem;
+//     }
+// }
+
+#potbox, #betbox {
+    background-color: rgba(255, 255, 255, 0.25);
 }
 
 .buttonBox {
@@ -169,7 +182,6 @@ width: auto;
 .numberInput {
     font-size: 1.5rem;
     text-align: center;
-    border: 0;
     background-color: rgba(0, 0, 0, 0);
     color: rgb(255, 255, 255);
     text-shadow: 1px 1px 1px rgb(0, 0, 0);
