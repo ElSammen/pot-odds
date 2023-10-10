@@ -9,26 +9,57 @@
     margin: auto;
 }
 
-
-.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-    width: auto;
+.infoButton {
+    position: absolute;
+    right: 0;
+    top: -1rem;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    &:hover {
+        color: #424649;
+        cursor: pointer;
+    }
 }
 
-.boardCards, .playerHand {
+.container, .container-fluid {
+    width: unset !important;
+}
+
+.boardCards, .playerHand, .oppCards {
 display: flex;
 flex-direction: row;
-margin: auto 33% auto 33%;
+place-content: center;
 padding: auto;
-width: auto;
+}
+
+.playerHand, .oppCards {
+    position: absolute;
+    justify-content: center;
+    place-content: center;
+    left: 43%;
+    margin: 0;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 15px;
 }
 
 .playerHand {
-    &:nth-child(1) {
-        margin-top: 1rem;
-    }
-
-    
+    bottom: 0.5rem;
 }
+
+.oppCards {
+    top: 2.5rem;
+}
+
+.playerHandLabel, .oppCardsLabel {
+    position: absolute;
+    top: -1.7rem;
+    left: 0.5rem;
+    color: whitesmoke;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+}
+
 
 .pcard1 {
     rotate: -15;
@@ -39,46 +70,32 @@ width: auto;
 }
 
 .cardBg {
-    object-fit: fill;
+    
     place-self: center;
     height: 100%;
     width: 100%;
-    object-fit: contain;
     place-content: center;
 }
+
 
 .card-img {
     height: 100%;
     width: 100%;
-    object-fit: contain;
+    object-fit: fit;
     place-content: center;
 }
 
 .pcard {
-    height: 10rem !important;
-    background-color: rgba(255, 255, 255, 0) !important;
+    height: 8.5rem !important;
     border-radius: 15px;
     border: solid 1px rgb(255, 255, 255) !important;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
     margin: 10px;
-    width: 7.5rem;
+    width: 6.5rem;
     color: rgb(255, 255, 255);
-
-    // &:hover {
-    //     box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.5);
-    //     background-color: rgba(255, 255, 255, 0.942) !important;
-    //     color: rgb(0, 0, 0);
-    //     height: 18rem !important;
-    //     width: 14rem !important;
-    // }
-
-    &.selected {
-        background-color: rgb(255, 255, 255) !important;
-        color: rgb(255, 255, 255);
-        text-shadow: 1.5px 1.5px 1.5px rgb(0, 0, 0);
-        margin: 0 0.2rem 0 0.2rem;
-    }
+    text-shadow: 1.75px 1.75px 2px rgb(0, 0, 0);
 }
+
 
 
 .radioButtons {
@@ -102,7 +119,7 @@ width: auto;
     text-decoration: underline;
 }
 
-.potOddsDiv, .cardViewDiv {
+.potOddsDiv, .cardViewDiv, .guessOutsDiv {
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -136,17 +153,37 @@ width: auto;
     background-color: rgba(255, 255, 255, 0.25);
 }
 
-.buttonBox {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* set column sizes here */
-    grid-template-rows: auto auto;
-    place-content: center;
-    grid-gap: 3px;
-    grid-auto-flow: column;
+.quizIntro {  
+    min-height: 13rem;
+    width: 9rem;
+    background-color: rgba(255, 255, 255, 0.75) !important;
+    border:rgb(0, 0, 0) solid 0.2rem;
+    border-radius: 15px;
+}
 
-    &>button {
-        background-color: rgba(0, 0, 0, 0);
+.quizQuestion {
+    background-color: white;
+    box-shadow: 4px 4px 0px 0 rgb(0, 0, 0);
+    border-radius: 5px;
+    padding: 0.5rem;
+    border: solid 1px rgb(255, 255, 255);
+    width: 20rem !important;
+    height: 12rem;
+    position: absolute;
+    left: 3rem;
+    bottom:3rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+    .form-label{
+        font-size: 1.3rem !important;
+        text-decoration: underline;
+        margin: auto 0.2rem;
+    }
+    .answerSpoiler{
+        font-size: 1.1rem;
+        margin-top: 0.75rem;
+        margin-bottom: 0.5rem;
+        position: relative;
     }
 }
 

@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import "../board.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import PHand from "../Player/PHand";
-import { CloseButton } from "react-bootstrap";
+import OutsQuiz from "../OutsQuiz";
 
 function Board() {
   const [cardInfo, setCardInfo] = useState("");
@@ -59,14 +59,13 @@ function Board() {
   const handleOptionChange = (e) => {
     if (e.target.id === "potOdds") {
       setSelectedOption("potOdds");
-    } else if (e.target.id === "cardView") {
-      setSelectedOption("cardView");
+    } else if (e.target.id === "guessOuts") {
+      setSelectedOption("guessOuts");
     }
   };
 
   return (
     <Container fluid className="board">
-      <CloseButton className="clearButton" />
       <div className="radioButtons">
         <div className="radioTitle">Select Option</div>
         <div className="potOddsDiv">
@@ -79,14 +78,14 @@ function Board() {
           ></input>
           <label htmlFor="potOdds">Pot Odds</label>
         </div>
-        <div className="cardViewDiv">
+        <div className="guessOutsDiv">
           <input
-            id="cardView"
+            id="guessOuts"
             name="radioOption"
             type="radio"
             onChange={handleOptionChange}
           ></input>
-          <label htmlFor="cardView">Card View</label>
+          <label htmlFor="guessOuts">Outs Quiz</label>
         </div>
       </div>
       {selectedOption === "potOdds" ? (
@@ -122,71 +121,7 @@ function Board() {
           </div>
         </>
       ) : null}
-      {selectedOption === "cardView" ? (
-        <>
-          <Container fluid className="boardCards px-0 w-auto">
-            <PHand
-              key="boardcard1"
-              getCardInfo={() => getCardInfo(card1Ref)}
-              ref={card1Ref}
-            />
-            <PHand
-              key="boardcard2"
-              getCardInfo={() => getCardInfo(card2Ref)}
-              ref={card2Ref}
-            />
-            <PHand
-              key="boardcard3"
-              getCardInfo={() => getCardInfo(card3Ref)}
-              ref={card3Ref}
-            />
-            {turn ? (
-              <>
-                <>
-                  <PHand
-                    key="boardcard4"
-                    getCardInfo={() => getCardInfo(card4Ref)}
-                    ref={card4Ref}
-                  />
-                </>
-                {river ? null :<>
-                  <div className="boardCardUnfilled">
-                    <div className="turnButton" onClick={() => setRiver(true)}>
-                      <p>+</p>
-                    </div>
-                  </div>
-                </>}
-              </>
-            ) : (
-              <div className="boardCardUnfilled">
-                <div className="turnButton" onClick={() => setTurn(true)}>
-                  <p>+</p>
-                </div>
-              </div>
-            )}
-            {river ? (
-              <PHand
-                key="boardcard5"
-                getCardInfo={() => getCardInfo(card5Ref)}
-                ref={card5Ref}
-              />
-            ) : null}
-          </Container>
-          <Container fluid className="playerHand px-0 w-auto">
-            <PHand
-              key="usercard1"
-              getCardInfo={getCardInfo}
-              id="usercard1"
-            />
-            <PHand
-              key="usercard2"
-              getCardInfo={getCardInfo}
-              id="usercard2"
-              className="pcard2"
-            />
-          </Container>
-        </>
-      ) : null}
+      {selectedOption === "guessOuts" ? <OutsQuiz /> : null}
     </Container>
   );
 }
