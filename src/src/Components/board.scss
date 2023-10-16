@@ -1,0 +1,249 @@
+.board {
+    background-image: url(../Components/images/Board/felt.png);
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+}
+
+.infoButton {
+    position: absolute;
+    right: 0;
+    top: -1rem;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    &:hover {
+        color: #424649;
+        cursor: pointer;
+    }
+}
+
+.container, .container-fluid {
+    width: unset !important;
+}
+
+.boardCards, .playerHand, .oppCards {
+display: flex;
+flex-direction: row;
+place-content: center;
+padding: auto;
+}
+
+.playerHand, .oppCards {
+    position: absolute;
+    justify-content: center;
+    place-content: center;
+    left: 43%;
+    margin: 0;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 15px;
+}
+
+.playerHand {
+    bottom: 0.5rem;
+}
+
+.oppCards {
+    top: 2.5rem;
+}
+
+.playerHandLabel, .oppCardsLabel {
+    position: absolute;
+    top: -1.7rem;
+    left: 0.5rem;
+    color: whitesmoke;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+}
+
+
+.pcard1 {
+    rotate: -15;
+}
+
+.pcard2 {
+    rotate: 15;
+}
+
+.cardBg {
+    margin-top: 1rem;
+    place-self: center;
+    width: 100%;
+    place-content: center;
+}
+
+
+.card-img {
+    max-height: 100%;
+    width: 100%;
+    object-fit: fit;
+    place-content: center;
+}
+
+// .card-img-overlay {
+ 
+// }
+
+.pcard {
+    height: 8.5rem !important;
+    border-radius: 15px;
+    border: solid 1px rgb(255, 255, 255) !important;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    margin: 10px;
+    width: 6.5rem;
+    color: rgb(255, 255, 255);
+    // text-shadow: 1.75px 1.75px 2px rgb(0, 0, 0);
+    
+}
+
+.valueTop, .valueBottom {
+    position: absolute;
+    -webkit-text-stroke-width: 0.9px;
+    -webkit-text-stroke-color: black;
+    font-size: 1.75rem !important;
+    font-weight: 500;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.valueTop {
+
+    top: 0.5rem;
+    left: 0.5rem;
+}
+
+.valueBottom {
+
+    bottom: 0.3rem;
+    right: 0.5rem;
+    transform: rotate(180deg);
+}
+
+
+.radioButtons {
+    background-color: white;
+    box-shadow: 4px 4px 0px 0 rgb(0, 0, 0);
+    border-radius: 5px;
+    padding: 0.5rem;
+    border: solid 1px rgb(255, 255, 255);
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    flex-direction: column;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+.radioTitle {
+    font-size: 1.1rem;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.potOddsDiv, .cardViewDiv, .guessOutsDiv {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.default{
+    margin-top: unset !important;
+    
+}
+
+// .turnButton {
+//     &:hover{
+//         font-size: 1.2rem;
+//     }
+// }
+
+#potbox, #betbox {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.quizIntro {  
+    min-height: 13rem;
+    width: 9rem;
+    background-color: rgba(255, 255, 255, 0.75) !important;
+    border:rgb(0, 0, 0) solid 0.2rem;
+    border-radius: 15px;
+}
+
+.quizQuestion {
+    background-color: white;
+    box-shadow: 5px 5px 0px 0 rgb(0, 0, 0);
+    border-radius: 5px;
+    padding: 0.5rem;
+    border: solid 1px rgb(255, 255, 255);
+    width: 20rem !important;
+    height: 12rem;
+    position: absolute;
+    left: 3rem;
+    bottom:3rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+    .form-label{
+        font-size: 1.3rem !important;
+        text-decoration: underline;
+        margin: auto 0.2rem;
+    }
+    .answerSpoiler{
+        font-size: 1.1rem;
+        margin-top: 0.75rem;
+        margin-bottom: 0.5rem;
+        position: relative;
+    }
+}
+
+.notdisplayed {
+    display: none;
+}
+
+.displayed {
+    height: 20px;
+    margin: auto;
+    margin-bottom: 1rem;
+    border: 0;
+}
+
+.Suit {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+
+.inputBox {
+    max-width: 80%;
+}
+
+.clearButton {
+    margin: auto;
+    right: 1.5rem;
+    top: 1.5rem;
+    position: absolute;
+}
+
+.numberInput {
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    margin: 0.5rem;
+}
+
+.potOdds {
+    font-size: 2.2rem;
+    text-align: center;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(228, 225, 7);
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    margin: 0.5rem;
+    text-decoration: underline;
+}
